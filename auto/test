@@ -1,0 +1,2 @@
+$datestring = (Get-Date).ToString("s").Replace(":","-") 
+New-Item E:\TempX\$datestring.txt -type "file"

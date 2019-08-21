@@ -1,0 +1,6 @@
+steps:
+  - label: "Run unit tests"
+    branches: master
+    command: "./auto/test"
+    agents:
+      queue: hometrack:build
