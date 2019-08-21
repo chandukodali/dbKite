@@ -1,6 +1,4 @@
 steps:
-  - label: "Run unit tests"
+  - label: "create file"
     branches: master
-    command: "./auto/test"
-    agents:
-      queue: hometrack:build
+    command: "./auto/deploy-test"
