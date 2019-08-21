@@ -1,4 +1,4 @@
 steps:
   - label: "create file"
     branches: master
-    command: "auto/deploy-test"
+    command: "/auto/deploy-test"
