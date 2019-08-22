@@ -11,7 +11,7 @@ BEGIN
   DECLARE @expected INT
 
   SELECT @actual = 1
-  SET @expected = 1
+  SET @expected = 0
   EXEC tSQLt.AssertEquals @expected, @actual;
 
 END;
