@@ -1,0 +1,1 @@
+Powershell.exe -File buildKite_Validate.ps1
