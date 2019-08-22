@@ -1,4 +1,6 @@
 ﻿#Step 2: RUN UNIT TESTS
+TRY
+{
 Write-Host "Starting Run Unit Tests"
 
 $scriptsFolder = "C:\buildkite-agent\builds\red-sye3-01-1\dbkite-1\db-pipeline\redgate"
@@ -16,7 +18,17 @@ write-host "Checking unit test result"
 $xml = [xml](Get-Content $testOutputFile)
 $errorCount = $xml.testsuites.testsuite | Select failures
 Write-output $errorCount.failures
-if($errorCount.failures -ge 0)
+if($errorCount.failures -gt 0)
+{
+exit 1
+}
+else 
+{
+exit 0
+}
+
+}
+catch 
 {
 exit 1
 }

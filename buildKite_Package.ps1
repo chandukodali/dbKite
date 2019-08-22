@@ -1,4 +1,6 @@
 ﻿#Step 4: PACKAGE AND PUBLISH
+TRY
+{
 Write-Host "Starting Package Creation"
 
 #re-validate
@@ -18,3 +20,10 @@ Write-Output $fileVersion
 $databasePackage = New-DlmDatabasePackage $validatedScriptsFolder -PackageId "DBKite" -PackageVersion $fileVersion
 
 Export-DlmDatabasePackage $databasePackage -Path "C:\buildkite-agent\packages"
+
+exit 0
+} 
+catch
+{
+exit 1
+}
