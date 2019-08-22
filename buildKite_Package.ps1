@@ -9,7 +9,7 @@ $validatedScriptsFolder = Invoke-DlmDatabaseSchemaValidation $scriptsFolder
 
 Write-Output $latestFileNameSubstring1+$fileVersion
 
-$latestFileName = Get-ChildItem -Path "C:\Rama" -Recurse | group directory | foreach {$_.group | sort LastWriteTime -Descending | select -First 1} | Select
+$latestFileName = Get-ChildItem -Path $validatedScriptsFolder -Recurse | group directory | foreach {$_.group | sort LastWriteTime -Descending | select -First 1} | Select
 $latestFileNameSubstring1 = $latestFileName.Name.Substring(0,11)
 $fileVersion = $latestFileName.Name.Substring(11,1)
 $fileVersion = [int]$fileVersion + 1
