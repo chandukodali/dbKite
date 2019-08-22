@@ -12,6 +12,15 @@ Export-DlmDatabaseRelease $dbRelease -Path "C:\buildkite-agent\releaseScripts"
 write-host "Beginning deployment"
 Use-DlmDatabaseRelease $dbRelease -DeployTo $destination
 write-host "Deployment Complete"
+
+write-host "Archive deployment files"
+$datestring = (Get-Date).ToString("s").Replace(":","-") 
+$destinationFolder = "C:\buildkite-agent\archive_releaseScripts\"+$datestring
+
+New-Item -ItemType "directory" -Path $destinationFolder
+Move-Item "C:\buildkite-agent\releaseScripts\*" $destinationFolder
+write-host "Archive completed"
+
 exit 0
 }
 catch
