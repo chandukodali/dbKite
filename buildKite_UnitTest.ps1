@@ -18,5 +18,5 @@ $errorCount = $xml.testsuites.testsuite | Select failures
 Write-output $errorCount.failures
 if($errorCount.failures -ge 0)
 {
-throw "Error - failure count greater than 0"
+exit 1
 }
