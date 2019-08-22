@@ -20,6 +20,8 @@ $errorCount = $xml.testsuites.testsuite | Select failures
 Write-output $errorCount.failures
 if($errorCount.failures -gt 0)
 {
+$ErrorMessage = $_.Exception.Message
+write-host $ErrorMessage
 exit 1
 }
 else 
@@ -30,5 +32,7 @@ exit 0
 }
 catch 
 {
+$ErrorMessage = $_.Exception.Message
+write-host $ErrorMessage
 exit 1
 }

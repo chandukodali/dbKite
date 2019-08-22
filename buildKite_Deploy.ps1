@@ -16,5 +16,7 @@ exit 0
 }
 catch
 {
+$ErrorMessage = $_.Exception.Message
+write-host $ErrorMessage
 exit 1
 }
