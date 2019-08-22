@@ -1,3 +1,3 @@
-param([Int32]$buildNumber)
+param([string]$buildNumber)
 $datestring = (Get-Date).ToString("s").Replace(":","-") + $buildNumber
 New-Item C:\Temp\$datestring.txt -type "file"
