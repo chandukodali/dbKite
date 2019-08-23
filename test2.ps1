@@ -1,5 +1,5 @@
-param([string]$buildNumber)
-$datestring = (Get-Date).ToString("s").Replace(":","-") + $BUILDKITE_BUILD_NUMBER
+$buildNumber=Get-ChildItem Env:BUILDKITE_BUILD_NUMBER
+write-host $buildNumber
+$datestring = (Get-Date).ToString("s").Replace(":","-") + $buildNumber
 New-Item C:\Temp\$datestring.txt -type "file"
 
-Get-ChildItem Env:
